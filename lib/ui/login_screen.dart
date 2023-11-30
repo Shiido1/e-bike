@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:prestmit/ui/home_screen.dart';
 import 'package:prestmit/ui/utils/app_color.dart';
 import 'package:prestmit/ui/utils/app_image.dart';
 import 'package:prestmit/ui/widget/button_widget.dart';
@@ -105,11 +106,14 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  const ButtonWidget(
+                  ButtonWidget(
                     buttonText: 'Login with Google',
                     color: AppColor.white,
                     buttonColor: AppColor.black,
                     buttonBorderColor: AppColor.black,
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) =>  HomeScreen())),
                   ),
                   const SizedBox(
                     height: 50,

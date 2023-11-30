@@ -8,4 +8,5 @@ class AppColor {
   static const Color primarylight = Color(0XFFFFD337);
   static const Color black = Colors.black;
   static const Color white = Colors.white;
+  static const Color lightskyBlue = Color(0XFFF1F6FB);
 }
