@@ -7,5 +7,8 @@ class AppImage {
   static const String home = 'assets/svg/home.svg';
   static const String bookmark = 'assets/svg/bookmark.svg';
   static const String send = 'assets/svg/send.svg';
+  static const String notification = 'assets/svg/notification.svg';
   static const String setting = 'assets/svg/setting.svg';
+  static const String preview = 'assets/image/preview.png';
+  static const String bike = 'assets/image/bike.png';
 }

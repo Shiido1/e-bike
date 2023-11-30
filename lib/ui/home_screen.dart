@@ -16,9 +16,41 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.white,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: AppColor.white,
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 8),
+            child: Container(
+              margin: EdgeInsets.symmetric(vertical: 4),
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: AppColor.lightskyBlue),
+              child: SvgPicture.asset(AppImage.notification),
+            ),
+          )
+        ],
+        leading: const Padding(
+          padding: EdgeInsets.only(left: 8.0),
+          child: CircleAvatar(
+            backgroundColor: AppColor.white,
+            backgroundImage: AssetImage(AppImage.preview),
+          ),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentScreenIndex,
         backgroundColor: AppColor.lightskyBlue,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         onTap: (value) => setState(() => currentScreenIndex = value),
         items: <BottomNavigationBarItem>[
