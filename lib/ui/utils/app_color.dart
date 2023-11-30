@@ -4,5 +4,8 @@ class AppColor {
   AppColor();
 
   static const Color primary = Color(0XFFFFCE23);
-  static const Color skyBlue = Color(0XFF3DDEED);
+  static const Color primaryFaded = Color(0XFF96823D);
+  static const Color primarylight = Color(0XFFFFD337);
+  static const Color black = Colors.black;
+  static const Color white = Colors.white;
 }
