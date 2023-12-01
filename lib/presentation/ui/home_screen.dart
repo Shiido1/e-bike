@@ -41,6 +41,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           ? const Center(child: CupertinoActivityIndicator())
           : SingleChildScrollView(
               padding: const EdgeInsets.only(top: 20),
+              physics: const NeverScrollableScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -67,148 +68,170 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 22.0),
-                    child: TextView(
-                      text: 'Hello good Morning!',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
                   SizedBox(
-                    height: 265,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          left: _onPageChangeValue > 0 ? 0 : 24.0),
-                      child: PageView.builder(
-                          onPageChanged: (value) => setState(() {
-                                _onPageChangeValue = value;
-                              }),
-                          controller: PageController(
-                            viewportFraction: 0.76,
-                          ),
-                          padEnds: _onPageChangeValue != 0,
-                          itemCount: 6,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, position) {
-                            return Stack(
-                              children: [
-                                Align(
-                                  alignment: Alignment.center,
-                                  child: Image.asset(AppImage.bike,
-                                      height: 199, width: 299),
-                                ),
-                                Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 28, vertical: 18),
-                                    margin: const EdgeInsets.only(right: 16),
-                                    decoration: BoxDecoration(
-                                      color:
-                                          AppColor.lightskyBlue.withOpacity(.8),
-                                      borderRadius: BorderRadius.circular(32.0),
-                                    )),
-                              ],
-                            );
-                          }),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      for (int i = 0; i < 6; i++)
-                        Container(
-                          height: 8,
-                          width: 8,
-                          margin: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: _onPageChangeValue == i
-                                ? AppColor.black
-                                : AppColor.lightskyBlue1,
-                            shape: BoxShape.circle,
-                          ),
-                        )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  Container(
-                    height: 109,
-                    padding: const EdgeInsets.only(left: 32, right: 27),
-                    color: AppColor.yellow,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        SizedBox(
-                          width: 80,
-                          child: TextView(
-                            text: 'Gotten your E-Bike yet?',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            textAlign: TextAlign.center,
-                            color: AppColor.primaryFaded,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 21,
-                        ),
-                        GestureDetector(
-                          onTap: () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (context) => PackageTrackScreen())),
-                          child: Container(
+                    height: MediaQuery.of(context).size.height,
+                    child: SingleChildScrollView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      padding: const EdgeInsets.only(top: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
                             padding:
-                                const EdgeInsets.fromLTRB(29, 16, 36.2, 16),
-                            decoration: BoxDecoration(
-                                color: AppColor.black,
-                                borderRadius: BorderRadius.circular(52)),
+                                const EdgeInsets.symmetric(horizontal: 22.0),
+                            child: TextView(
+                              text: 'Hello good Morning!',
+                              fontWeight: FontWeight.w700,
+                              fontSize: 18,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          SizedBox(
+                            height: 265,
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  left: _onPageChangeValue > 0 ? 0 : 24.0),
+                              child: PageView.builder(
+                                  onPageChanged: (value) => setState(() {
+                                        _onPageChangeValue = value;
+                                      }),
+                                  controller: PageController(
+                                    viewportFraction: 0.76,
+                                  ),
+                                  padEnds: _onPageChangeValue != 0,
+                                  itemCount: 6,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, position) {
+                                    return Stack(
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.center,
+                                          child: Image.asset(AppImage.bike,
+                                              height: 199, width: 299),
+                                        ),
+                                        Container(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 28, vertical: 18),
+                                            margin: const EdgeInsets.only(
+                                                right: 16),
+                                            decoration: BoxDecoration(
+                                              color: AppColor.lightskyBlue
+                                                  .withOpacity(.8),
+                                              borderRadius:
+                                                  BorderRadius.circular(32.0),
+                                            )),
+                                      ],
+                                    );
+                                  }),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              for (int i = 0; i < 6; i++)
+                                Container(
+                                  height: 8,
+                                  width: 8,
+                                  margin: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    color: _onPageChangeValue == i
+                                        ? AppColor.black
+                                        : AppColor.lightskyBlue1,
+                                    shape: BoxShape.circle,
+                                  ),
+                                )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          Container(
+                            height: 109,
+                            padding: const EdgeInsets.only(left: 32, right: 27),
+                            color: AppColor.yellow,
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                TextView(
-                                  text: 'Your Orders',
-                                  color: AppColor.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                                SizedBox(
+                                  width: 80,
+                                  child: TextView(
+                                    text: 'Gotten your E-Bike yet?',
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    textAlign: TextAlign.center,
+                                    color: AppColor.primaryFaded,
+                                  ),
                                 ),
                                 const SizedBox(
                                   width: 21,
                                 ),
-                                const Icon(
-                                  Icons.arrow_forward_sharp,
-                                  size: 25,
-                                  color: AppColor.white,
+                                GestureDetector(
+                                  onTap: () => Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              PackageTrackScreen())),
+                                  child: Container(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        29, 16, 36.2, 16),
+                                    decoration: BoxDecoration(
+                                        color: AppColor.black,
+                                        borderRadius:
+                                            BorderRadius.circular(52)),
+                                    child: Row(
+                                      children: [
+                                        TextView(
+                                          text: 'Your Orders',
+                                          color: AppColor.white,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        const SizedBox(
+                                          width: 21,
+                                        ),
+                                        const Icon(
+                                          Icons.arrow_forward_sharp,
+                                          size: 25,
+                                          color: AppColor.white,
+                                        )
+                                      ],
+                                    ),
+                                  ),
                                 )
                               ],
                             ),
                           ),
-                        )
-                      ],
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Image.asset(
+                                AppImage.movingbike,
+                                height: 161,
+                                width: 161,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    right: 48.0, bottom: 10),
+                                child: TextView(
+                                  text:
+                                      'You too can join our\nElite squad of E-bikers',
+                                  textAlign: TextAlign.start,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(
-                        AppImage.movingbike,
-                        height: 161,
-                        width: 161,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 48.0, bottom: 10),
-                        child: TextView(
-                          text: 'You too can join our\nElite squad of E-bikers',
-                          textAlign: TextAlign.start,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      )
-                    ],
+                  const SizedBox(
+                    height: 20,
                   )
                 ],
               ),
