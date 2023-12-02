@@ -170,7 +170,7 @@ class TrackScreen extends StatelessWidget {
                                     height: 16.h,
                                   ),
                                   TextView(
-                                    text: 'Sukabumi, Indonesia',
+                                    text: '2,50 USD',
                                     color: AppColor.greythick1,
                                     fontSize: 16.sp,
                                     fontWeight: FontWeight.w600,
@@ -179,7 +179,7 @@ class TrackScreen extends StatelessWidget {
                                     height: 8.h,
                                   ),
                                   TextView(
-                                    text: 'Estimate arrives in',
+                                    text: 'Postal fee',
                                     color: AppColor.grey,
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w400,
@@ -197,7 +197,7 @@ class TrackScreen extends StatelessWidget {
                                     height: 16.h,
                                   ),
                                   TextView(
-                                    text: 'Sukabumi, Indonesia',
+                                    text: 'Bali, Indonesia',
                                     color: AppColor.greythick1,
                                     fontSize: 16.sp,
                                     fontWeight: FontWeight.w600,
@@ -206,7 +206,7 @@ class TrackScreen extends StatelessWidget {
                                     height: 8.h,
                                   ),
                                   TextView(
-                                    text: 'Estimate arrives in',
+                                    text: 'Parcel, 24kg',
                                     color: AppColor.grey,
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w400,
@@ -225,6 +225,182 @@ class TrackScreen extends StatelessWidget {
                                   ),
                                 ],
                               )),
+                          SizedBox(
+                            height: 24.h,
+                          ),
+                          TextView(
+                            text: 'History',
+                            color: AppColor.black,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          SizedBox(
+                            height: 24.h,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.all(16.w),
+                                        decoration: const BoxDecoration(
+                                          color: AppColor.primary,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.asset(
+                                          AppImage.van,
+                                          height: 24.h,
+                                          width: 24.w,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 12.w,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      TextView(
+                                        text: 'In Delivery',
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      TextView(
+                                        text: 'Bali, Indonesia',
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColor.grey,
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(),
+                                  TextView(
+                                    text: '00.00 PM',
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColor.grey,
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                  padding: EdgeInsets.only(left: 20.w),
+                                  height: 40,
+                                  child: VerticalDivider(
+                                      color: AppColor.greythick)),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(16.w),
+                                    decoration: const BoxDecoration(
+                                      color: AppColor.lightskyBlue,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.asset(
+                                      AppImage.mailbox,
+                                      height: 24.h,
+                                      width: 24.w,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 12.w,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      TextView(
+                                        text: 'Transit - Sending City',
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      TextView(
+                                        text: 'Jakarta, Indonesia',
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColor.grey,
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(),
+                                  TextView(
+                                    text: '21.00 PM',
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColor.grey,
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                  padding: EdgeInsets.only(left: 20.w),
+                                  height: 40,
+                                  child: VerticalDivider(
+                                      color: AppColor.greythick)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(16.w),
+                                decoration: const BoxDecoration(
+                                  color: AppColor.lightskyBlue,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  AppImage.box,
+                                  height: 24.h,
+                                  width: 24.w,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 12.w,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  TextView(
+                                    text: 'Send Form Sukabumi',
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  SizedBox(
+                                    height: 10.h,
+                                  ),
+                                  TextView(
+                                    text: 'Sukabumi, Indonesia',
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColor.grey,
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              TextView(
+                                text: '19.00 PM',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: AppColor.grey,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 30.h,
+                          )
                         ]),
                   )),
             );
