@@ -20,9 +20,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   late FakeNotifier _fakeNotifier;
 
-  PageController controller = PageController();
+  PageController controller =
+      PageController(initialPage: 1, viewportFraction: 0.65);
   static dynamic currentPageValue = 0.0;
-  int _onPageChangeValue = 0;
+  int _onPageChangeValue = 1;
 
   @override
   void initState() {
@@ -94,35 +95,29 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               padding: EdgeInsets.only(
                                   left: _onPageChangeValue > 0 ? 0 : 24.0),
                               child: PageView.builder(
-                                  onPageChanged: (value) => setState(() {
-                                        _onPageChangeValue = value;
-                                      }),
-                                  controller: PageController(
-                                    viewportFraction: 0.76,
-                                  ),
+                                  onPageChanged: (value) {
+                                    _onPageChangeValue = value;
+                                    setState(() {});
+                                  },
+                                  controller: controller,
                                   padEnds: _onPageChangeValue != 0,
                                   itemCount: 6,
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (context, position) {
-                                    return Stack(
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.center,
-                                          child: Image.asset(AppImage.bike,
-                                              height: 199, width: 299),
-                                        ),
-                                        Container(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 28, vertical: 18),
-                                            margin: const EdgeInsets.only(
-                                                right: 16),
-                                            decoration: BoxDecoration(
-                                              color: AppColor.lightskyBlue
-                                                  .withOpacity(.8),
+                                    return AnimatedOpacity(
+                                      duration:
+                                          const Duration(milliseconds: 250),
+                                      opacity: _onPageChangeValue == position
+                                          ? 1
+                                          : .3,
+                                      child: Container(
+                                          margin:
+                                              const EdgeInsets.only(right: 16),
+                                          decoration: BoxDecoration(
+                                              color: AppColor.lightskyBlue,
                                               borderRadius:
-                                                  BorderRadius.circular(32.0),
-                                            )),
-                                      ],
+                                                  BorderRadius.circular(32.0)),
+                                          child: Image.asset(AppImage.bike)),
                                     );
                                   }),
                             ),
@@ -151,19 +146,18 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             height: 25,
                           ),
                           Container(
-                            height: 109,
-                            padding: const EdgeInsets.only(left: 32, right: 27),
+                            padding: const EdgeInsets.only(
+                                left: 32, right: 27, top: 27, bottom: 26),
                             color: AppColor.yellow,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                SizedBox(
-                                  width: 80,
+                                Flexible(
                                   child: TextView(
-                                    text: 'Gotten your E-Bike yet?',
+                                    text: 'Gotten your\nE-Bike yet?',
                                     fontSize: 14,
                                     fontWeight: FontWeight.w400,
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.left,
                                     color: AppColor.primaryFaded,
                                   ),
                                 ),
@@ -206,22 +200,23 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             ),
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
                                 AppImage.movingbike,
                                 height: 161,
                                 width: 161,
+                                fit: BoxFit.scaleDown,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 48.0, bottom: 10),
-                                child: TextView(
-                                  text:
-                                      'You too can join our\nElite squad of E-bikers',
-                                  textAlign: TextAlign.start,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
+                              Flexible(
+                                child: Container(
+                                  margin: EdgeInsets.only(bottom: 23),
+                                  child: TextView(
+                                    text:
+                                        'You too can join our\nElite squad of E-bikers',
+                                    textAlign: TextAlign.start,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               )
                             ],
