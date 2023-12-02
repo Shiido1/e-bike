@@ -13,7 +13,7 @@ class TrackerHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(24, 24, 31.86, 0),
+      padding: const EdgeInsets.fromLTRB(0, 24, 10, 0),
       child: Row(
         children: [
           Container(

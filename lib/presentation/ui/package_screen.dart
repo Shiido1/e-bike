@@ -42,31 +42,28 @@ class _PackageTrackScreenState extends ConsumerState<PackageTrackScreen> {
       backgroundColor: AppColor.white,
       body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
-        padding: const EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.only(top: 42, right: 24, left: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const CircleAvatar(
-                    radius: 26,
-                    backgroundColor: AppColor.white,
-                    backgroundImage: AssetImage(AppImage.preview),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 4),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: AppColor.lightskyBlue),
-                    child: SvgPicture.asset(AppImage.notification),
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const CircleAvatar(
+                  radius: 26,
+                  backgroundColor: AppColor.white,
+                  backgroundImage: AssetImage(AppImage.preview),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 4),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: AppColor.lightskyBlue),
+                  child: SvgPicture.asset(AppImage.notification),
+                ),
+              ],
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height,
@@ -76,13 +73,10 @@ class _PackageTrackScreenState extends ConsumerState<PackageTrackScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 22.0),
-                      child: TextView(
-                        text: 'Hello good Morning!',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18,
-                      ),
+                    TextView(
+                      text: 'Hello good Morning!',
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18,
                     ),
                     const SizedBox(
                       height: 37,
@@ -95,7 +89,7 @@ class _PackageTrackScreenState extends ConsumerState<PackageTrackScreen> {
                         : Center(
                             child: Container(
                               height: 308,
-                              width: 327,
+                              width: double.infinity,
                               decoration: BoxDecoration(
                                   color: AppColor.primary,
                                   borderRadius: BorderRadius.circular(32)),
@@ -226,13 +220,10 @@ class _PackageTrackScreenState extends ConsumerState<PackageTrackScreen> {
                     const SizedBox(
                       height: 40,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 22.0),
-                      child: TextView(
-                        text: 'Tracking history',
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                      ),
+                    TextView(
+                      text: 'Tracking history',
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
                     ),
                     fakeState.isBusy
                         ? Padding(

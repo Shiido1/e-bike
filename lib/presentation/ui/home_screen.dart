@@ -159,8 +159,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               children: [
                                 SizedBox(
                                   width: 80,
+                                  height:5,
                                   child: TextView(
-                                    text: 'Gotten your E-Bike yet?',
+                                    text: 'Gotten your\nE-Bike yet?',
                                     fontSize: 14,
                                     fontWeight: FontWeight.w400,
                                     textAlign: TextAlign.center,

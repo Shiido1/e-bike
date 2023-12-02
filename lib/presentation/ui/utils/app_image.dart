@@ -9,6 +9,7 @@ class AppImage {
   static const String swingline5 = 'assets/svg/swinglin5.svg';
   static const String track = 'assets/svg/track.svg';
   static const String home = 'assets/svg/home.svg';
+  static const String map = 'assets/svg/map.svg';
   static const String bookmark = 'assets/svg/bookmark.svg';
   static const String send = 'assets/svg/send.svg';
   static const String notification = 'assets/svg/notification.svg';
