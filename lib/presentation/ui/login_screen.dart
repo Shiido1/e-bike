@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:prestmit/presentation/ui/home_screen.dart';
 import 'package:prestmit/presentation/ui/utils/app_color.dart';
@@ -22,23 +23,23 @@ class LoginScreen extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   AppImage.swingline,
-                  height: 200,
-                  width: 200,
+                  height: 200.h,
+                  width: 200.w,
                 ),
                 Positioned(
                   right: 5,
                   child: SvgPicture.asset(
                     AppImage.swingline1,
-                    height: 200,
-                    width: 200,
+                    height: 200.h,
+                    width: 200.w,
                   ),
                 ),
                 Positioned(
                   right: -7,
                   child: SvgPicture.asset(
                     AppImage.swingline1,
-                    height: 200,
-                    width: 200,
+                    height: 200.h,
+                    width: 200.w,
                   ),
                 ),
               ],
@@ -50,61 +51,61 @@ class LoginScreen extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    height: 70,
+                  SizedBox(
+                    height: 70.h,
                   ),
                   SvgPicture.asset(
                     AppImage.loginImage,
-                    height: 200,
-                    width: 200,
+                    height: 200.h,
+                    width: 200.w,
                   ),
-                  const SizedBox(
-                    height: 80,
+                  SizedBox(
+                    height: 80.h,
                   ),
                   TextView(
                     text: 'Welcome to E-Bikes',
-                    fontSize: 24,
+                    fontSize: 24.sp,
                     fontWeight: FontWeight.w600,
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: 10.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32),
+                    padding: EdgeInsets.symmetric(horizontal: 32.w),
                     child: TextView(
                       text:
                           'Buying Electric bikes just got a lot easier, Try us today.',
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w400,
                       textAlign: TextAlign.center,
                       letterSpacing: .5,
                       color: AppColor.primaryFaded,
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       DotWidget(color: AppColor.black),
-                      const SizedBox(
-                        width: 16,
+                      SizedBox(
+                        width: 16.w,
                       ),
                       DotWidget(color: AppColor.white),
-                      const SizedBox(
-                        width: 16,
+                      SizedBox(
+                        width: 16.w,
                       ),
                       DotWidget(color: AppColor.white),
                     ],
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 30.h,
                   ),
                   ButtonWidget(
                     buttonText: 'Login with Google',
@@ -112,29 +113,28 @@ class LoginScreen extends StatelessWidget {
                     buttonColor: AppColor.black,
                     buttonBorderColor: AppColor.black,
                     onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) =>  HomeScreen())),
+                        MaterialPageRoute(builder: (context) => HomeScreen())),
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 50.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextView(
                         text: 'Don’t have any account?',
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w500,
                         textAlign: TextAlign.center,
                         letterSpacing: .5,
                         color: AppColor.primaryFaded,
                       ),
-                      const SizedBox(
-                        width: 10,
+                      SizedBox(
+                        width: 10.w,
                       ),
                       TextView(
                         text: 'Sign Up',
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                         textAlign: TextAlign.center,
                         letterSpacing: .5,

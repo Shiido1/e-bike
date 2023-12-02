@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../utils/app_color.dart';
 import 'text_view.dart';
 
@@ -13,47 +14,47 @@ class TrackerHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 24, 10, 0),
+      padding: EdgeInsets.fromLTRB(0.w, 24.w, 10.w, 0.w),
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16.w),
             decoration: const BoxDecoration(
               color: AppColor.lightskyBlue,
               shape: BoxShape.circle,
             ),
             child: Image.asset(
               image!,
-              height: 24,
-              width: 24,
+              height: 24.h,
+              width: 24.w,
             ),
           ),
-          const SizedBox(
-            width: 12,
+          SizedBox(
+            width: 12.w,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextView(
                 text: text1!,
-                fontSize: 14,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: 10.h,
               ),
               TextView(
                 text: text2!,
-                fontSize: 14,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
                 color: AppColor.grey,
               ),
             ],
           ),
           const Spacer(),
-          const Icon(
+          Icon(
             Icons.arrow_forward_ios_rounded,
-            size: 14,
+            size: 14.sp,
             color: AppColor.greythick,
           )
         ],

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:prestmit/presentation/notifier/fake_notifier.dart';
 import 'package:prestmit/presentation/ui/package_screen.dart';
@@ -20,9 +21,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   late FakeNotifier _fakeNotifier;
 
-  PageController controller = PageController();
+  PageController controller =
+      PageController(initialPage: 1, viewportFraction: 0.65);
   static dynamic currentPageValue = 0.0;
-  int _onPageChangeValue = 0;
+  int _onPageChangeValue = 1;
 
   @override
   void initState() {
@@ -40,28 +42,28 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       body: fakeState.isBusy
           ? const Center(child: CupertinoActivityIndicator())
           : SingleChildScrollView(
-              padding: const EdgeInsets.only(top: 20),
+              padding: EdgeInsets.only(top: 24.w),
               physics: const NeverScrollableScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 24),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const CircleAvatar(
-                          radius: 26,
+                        CircleAvatar(
+                          radius: 26.r,
                           backgroundColor: AppColor.white,
                           backgroundImage: AssetImage(AppImage.preview),
                         ),
                         Container(
-                          margin: const EdgeInsets.symmetric(vertical: 4),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 10),
+                          margin: EdgeInsets.symmetric(vertical: 4.w),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 12.w, vertical: 10.w),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(12.r),
                               color: AppColor.lightskyBlue),
                           child: SvgPicture.asset(AppImage.notification),
                         ),
@@ -69,75 +71,66 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height,
                     child: SingleChildScrollView(
                       physics: const AlwaysScrollableScrollPhysics(),
-                      padding: const EdgeInsets.only(top: 20),
+                      padding: EdgeInsets.only(top: 18.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 22.0),
+                            padding: EdgeInsets.symmetric(horizontal: 22.w),
                             child: TextView(
                               text: 'Hello good Morning!',
                               fontWeight: FontWeight.w700,
-                              fontSize: 18,
+                              fontSize: 18.sp,
                             ),
                           ),
-                          const SizedBox(
-                            height: 30,
+                          SizedBox(
+                            height: 30.h,
                           ),
                           SizedBox(
-                            height: 265,
+                            height: 265.h,
                             child: Padding(
                               padding: EdgeInsets.only(
-                                  left: _onPageChangeValue > 0 ? 0 : 24.0),
+                                  left: _onPageChangeValue > 0 ? 0.w : 24.w),
                               child: PageView.builder(
-                                  onPageChanged: (value) => setState(() {
-                                        _onPageChangeValue = value;
-                                      }),
-                                  controller: PageController(
-                                    viewportFraction: 0.76,
-                                  ),
+                                  onPageChanged: (value) {
+                                    _onPageChangeValue = value;
+                                    setState(() {});
+                                  },
+                                  controller: controller,
                                   padEnds: _onPageChangeValue != 0,
                                   itemCount: 6,
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (context, position) {
-                                    return Stack(
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.center,
-                                          child: Image.asset(AppImage.bike,
-                                              height: 199, width: 299),
-                                        ),
-                                        Container(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 28, vertical: 18),
-                                            margin: const EdgeInsets.only(
-                                                right: 16),
-                                            decoration: BoxDecoration(
-                                              color: AppColor.lightskyBlue
-                                                  .withOpacity(.8),
+                                    return AnimatedOpacity(
+                                      duration:
+                                          const Duration(milliseconds: 250),
+                                      opacity: _onPageChangeValue == position
+                                          ? 1
+                                          : .3,
+                                      child: Container(
+                                          margin: EdgeInsets.only(right: 16.w),
+                                          decoration: BoxDecoration(
+                                              color: AppColor.lightskyBlue,
                                               borderRadius:
-                                                  BorderRadius.circular(32.0),
-                                            )),
-                                      ],
+                                                  BorderRadius.circular(32.w)),
+                                          child: Image.asset(AppImage.bike)),
                                     );
                                   }),
                             ),
                           ),
-                          const SizedBox(
-                            height: 30,
+                          SizedBox(
+                            height: 30.h,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               for (int i = 0; i < 6; i++)
                                 Container(
-                                  height: 8,
-                                  width: 8,
-                                  margin: const EdgeInsets.all(5),
+                                  height: 8.h,
+                                  width: 8.w,
+                                  margin: EdgeInsets.all(5.w),
                                   decoration: BoxDecoration(
                                     color: _onPageChangeValue == i
                                         ? AppColor.black
@@ -147,29 +140,30 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                 )
                             ],
                           ),
-                          const SizedBox(
-                            height: 25,
+                          SizedBox(
+                            height: 25.h,
                           ),
                           Container(
-                            height: 109,
-                            padding: const EdgeInsets.only(left: 32, right: 27),
+                            padding: EdgeInsets.only(
+                                left: 32.w,
+                                right: 27.w,
+                                top: 27.w,
+                                bottom: 26.w),
                             color: AppColor.yellow,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                SizedBox(
-                                  width: 80,
-                                  height:5,
+                                Flexible(
                                   child: TextView(
                                     text: 'Gotten your\nE-Bike yet?',
-                                    fontSize: 14,
+                                    fontSize: 14.sp,
                                     fontWeight: FontWeight.w400,
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.left,
                                     color: AppColor.primaryFaded,
                                   ),
                                 ),
-                                const SizedBox(
-                                  width: 21,
+                                SizedBox(
+                                  width: 21.w,
                                 ),
                                 GestureDetector(
                                   onTap: () => Navigator.of(context).push(
@@ -177,8 +171,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                           builder: (context) =>
                                               PackageTrackScreen())),
                                   child: Container(
-                                    padding: const EdgeInsets.fromLTRB(
-                                        29, 16, 36.2, 16),
+                                    padding: EdgeInsets.fromLTRB(
+                                        29.w, 16.w, 36.2.w, 16.w),
                                     decoration: BoxDecoration(
                                         color: AppColor.black,
                                         borderRadius:
@@ -188,15 +182,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                         TextView(
                                           text: 'Your Orders',
                                           color: AppColor.white,
-                                          fontSize: 14,
+                                          fontSize: 14.sp,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                        const SizedBox(
-                                          width: 21,
+                                        SizedBox(
+                                          width: 21.w,
                                         ),
-                                        const Icon(
+                                        Icon(
                                           Icons.arrow_forward_sharp,
-                                          size: 25,
+                                          size: 25.sp,
                                           color: AppColor.white,
                                         )
                                       ],
@@ -207,22 +201,23 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             ),
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
                                 AppImage.movingbike,
-                                height: 161,
-                                width: 161,
+                                height: 161.h,
+                                width: 161.w,
+                                fit: BoxFit.scaleDown,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 48.0, bottom: 10),
-                                child: TextView(
-                                  text:
-                                      'You too can join our\nElite squad of E-bikers',
-                                  textAlign: TextAlign.start,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
+                              Flexible(
+                                child: Container(
+                                  margin: EdgeInsets.only(bottom: 23.w),
+                                  child: TextView(
+                                    text:
+                                        'You too can join our\nElite squad of E-bikers',
+                                    textAlign: TextAlign.start,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               )
                             ],
@@ -231,8 +226,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: 20.h,
                   )
                 ],
               ),
@@ -247,44 +242,44 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+              padding: EdgeInsets.only(top: 10.w),
               child: SvgPicture.asset(
                 AppImage.home,
-                height: 20,
-                width: 20,
+                height: 24.w,
+                width: 24.w,
               ),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+              padding: EdgeInsets.only(top: 10.w),
               child: SvgPicture.asset(
                 AppImage.bookmark,
-                height: 20,
-                width: 20,
+                height: 24.h,
+                width: 24.w,
               ),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+              padding: EdgeInsets.only(top: 10.w),
               child: SvgPicture.asset(
                 AppImage.send,
-                height: 20,
-                width: 20,
+                height: 24.h,
+                width: 24.w,
               ),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+              padding: EdgeInsets.only(top: 10.w),
               child: SvgPicture.asset(
                 AppImage.setting,
-                height: 20,
-                width: 20,
+                height: 24.h,
+                width: 24.w,
               ),
             ),
             label: '',

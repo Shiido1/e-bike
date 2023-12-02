@@ -48,7 +48,7 @@ class ButtonWidget extends StatelessWidget {
                     child: SvgPicture.asset(AppImage.google)),
               ),
               SizedBox(
-                width: 58,
+                width: 60,
               ),
               Center(
                 child: TextView(
