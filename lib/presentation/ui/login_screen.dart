@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:prestmit/ui/home_screen.dart';
-import 'package:prestmit/ui/utils/app_color.dart';
-import 'package:prestmit/ui/utils/app_image.dart';
-import 'package:prestmit/ui/widget/button_widget.dart';
-import 'package:prestmit/ui/widget/dot_widget.dart';
-import 'package:prestmit/ui/widget/text_view.dart';
+import 'package:prestmit/presentation/ui/home_screen.dart';
+import 'package:prestmit/presentation/ui/utils/app_color.dart';
+import 'package:prestmit/presentation/ui/utils/app_image.dart';
+import 'package:prestmit/presentation/ui/widget/button_widget.dart';
+import 'package:prestmit/presentation/ui/widget/dot_widget.dart';
+import 'package:prestmit/presentation/ui/widget/text_view.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:prestmit/ui/utils/app_color.dart';
-import 'package:prestmit/ui/utils/app_image.dart';
-import 'package:prestmit/ui/widget/text_view.dart';
+import 'package:prestmit/presentation/ui/utils/app_color.dart';
+import 'package:prestmit/presentation/ui/utils/app_image.dart';
+import 'package:prestmit/presentation/ui/widget/text_view.dart';
 
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget(

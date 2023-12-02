@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prestmit/ui/login_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:prestmit/presentation/ui/login_screen.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const ProviderScope(child: MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(),
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: const LoginScreen(),
     );
   }
 }
