@@ -8,10 +8,8 @@ import 'package:prestmit/presentation/ui/widget/text_view.dart';
 import 'utils/app_image.dart';
 
 class TrackScreen extends StatelessWidget {
-  TrackScreen({super.key});
+ const TrackScreen({super.key});
 
-  final _sheet = GlobalKey();
-  final _controller = DraggableScrollableController();
 
   @override
   Widget build(BuildContext context) {
