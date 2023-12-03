@@ -19,31 +19,36 @@ class LoginScreen extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topRight,
-            child: Stack(
-              children: [
-                SvgPicture.asset(
-                  AppImage.swingline,
-                  height: 200.h,
-                  width: 200.w,
-                ),
-                Positioned(
-                  right: 5,
-                  child: SvgPicture.asset(
-                    AppImage.swingline1,
-                    height: 200.h,
-                    width: 200.w,
-                  ),
-                ),
-                Positioned(
-                  right: -7,
-                  child: SvgPicture.asset(
-                    AppImage.swingline1,
-                    height: 200.h,
-                    width: 200.w,
-                  ),
-                ),
-              ],
+            child: SvgPicture.asset(
+              AppImage.swingline,
+              height: 200.h,
+              width: 200.w,
             ),
+            // child: Stack(
+            //   children: [
+            //     SvgPicture.asset(
+            //       AppImage.swingline,
+            //       height: 200.h,
+            //       width: 200.w,
+            //     ),
+            //     Positioned(
+            //       right: 5,
+            //       child: SvgPicture.asset(
+            //         AppImage.swingline1,
+            //         height: 200.h,
+            //         width: 200.w,
+            //       ),
+            //     ),
+            //     Positioned(
+            //       right: -7,
+            //       child: SvgPicture.asset(
+            //         AppImage.swingline1,
+            //         height: 200.h,
+            //         width: 200.w,
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ),
           CustomPaint(
             painter: OpenPainter(),
@@ -61,7 +66,9 @@ class LoginScreen extends StatelessWidget {
                   SvgPicture.asset(
                     AppImage.loginImage,
                     height: 200.h,
-                    width: 200.w,
+                    width: double.infinity,
+                    // width: 200.w,
+                    fit: BoxFit.cover,
                   ),
                   SizedBox(
                     height: 80.h,

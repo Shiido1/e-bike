@@ -20,43 +20,37 @@ class TrackerHistory extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(16.w),
             decoration: const BoxDecoration(
-              color: AppColor.lightskyBlue,
-              shape: BoxShape.circle,
-            ),
+                color: AppColor.lightskyBlue, shape: BoxShape.circle),
             child: Image.asset(
               image!,
               height: 24.h,
               width: 24.w,
             ),
           ),
-          SizedBox(
-            width: 12.w,
+          SizedBox(width: 12.w),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextView(
+                  text: text1!,
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 2,
+                ),
+                SizedBox(height: 6.h),
+                TextView(
+                  text: text2!,
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                  color: AppColor.grey,
+                ),
+              ],
+            ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextView(
-                text: text1!,
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w500,
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              TextView(
-                text: text2!,
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w400,
-                color: AppColor.grey,
-              ),
-            ],
-          ),
-          const Spacer(),
-          Icon(
-            Icons.arrow_forward_ios_rounded,
-            size: 14.sp,
-            color: AppColor.greythick,
-          )
+          SizedBox(width: 12.w),
+          Icon(Icons.arrow_forward_ios_rounded,
+              size: 14.sp, color: AppColor.greythick)
         ],
       ),
     );

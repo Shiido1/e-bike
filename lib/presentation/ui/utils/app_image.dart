@@ -20,4 +20,6 @@ class AppImage {
   static const String movingbike = 'assets/image/bikemove.gif';
   static const String box = 'assets/image/📦.png';
   static const String mailbox = 'assets/image/📬.png';
+  static const String arrow = 'assets/svg/arrow.svg';
+  static const String menu = 'assets/svg/menu.svg';
 }

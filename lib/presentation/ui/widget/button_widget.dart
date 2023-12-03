@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:prestmit/presentation/ui/utils/app_color.dart';
 import 'package:prestmit/presentation/ui/utils/app_image.dart';
@@ -37,26 +38,19 @@ class ButtonWidget extends StatelessWidget {
                       side: BorderSide(color: buttonBorderColor!, width: 1)))),
           child: Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 4.0),
-                child: Container(
-                    padding: EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppColor.white,
-                    ),
-                    child: SvgPicture.asset(AppImage.google)),
-              ),
-              SizedBox(
-                width: 60,
-              ),
-              Center(
-                child: TextView(
-                  text: buttonText!,
-                  fontSize: 15.0,
-                  color: color,
-                  fontWeight: FontWeight.w500,
-                ),
+              Container(
+                  padding: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: AppColor.white,
+                  ),
+                  child: SvgPicture.asset(AppImage.google)),
+              SizedBox(width: 55.w),
+              TextView(
+                text: buttonText!,
+                fontSize: 15.0,
+                color: color,
+                fontWeight: FontWeight.w500,
               ),
             ],
           )),
