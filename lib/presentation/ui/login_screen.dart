@@ -67,7 +67,6 @@ class LoginScreen extends StatelessWidget {
                     AppImage.loginImage,
                     height: 200.h,
                     width: double.infinity,
-                    // width: 200.w,
                     fit: BoxFit.cover,
                   ),
                   SizedBox(

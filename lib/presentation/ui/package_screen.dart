@@ -190,7 +190,7 @@ class _PackageTrackScreenState extends ConsumerState<PackageTrackScreen> {
                   fakeState.isBusy
                       ? Column(
                           children: [
-                            ...[1, 2, 3]
+                            ...[1, 2, 3, 2, 2]
                                 .map(
                                   (e) => Padding(
                                     padding: EdgeInsets.only(top: 16.w),
@@ -284,51 +284,48 @@ class _PackageTrackScreenState extends ConsumerState<PackageTrackScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: SizedBox(
-        height: 80.h,
-        child: BottomNavigationBar(
-          currentIndex: currentScreenIndex,
-          backgroundColor: AppColor.lightskyBlue,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          elevation: 4,
-          type: BottomNavigationBarType.fixed,
-          onTap: (value) => setState(() => currentScreenIndex = value),
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImage.home,
-                // height: 24.w,
-                // width: 24.w,
-              ),
-              label: '',
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentScreenIndex,
+        backgroundColor: AppColor.lightskyBlue,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        elevation: 4,
+        type: BottomNavigationBarType.fixed,
+        onTap: (value) => setState(() => currentScreenIndex = value),
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppImage.home,
+              // height: 24.w,
+              // width: 24.w,
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImage.bookmark,
-                // height: 24.h,
-                // width: 24.w,
-              ),
-              label: '',
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppImage.bookmark,
+              // height: 24.h,
+              // width: 24.w,
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImage.send,
-                // height: 24.h,
-                // width: 24.w,
-              ),
-              label: '',
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppImage.send,
+              // height: 24.h,
+              // width: 24.w,
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImage.setting,
-                // height: 24.h,
-                // width: 24.w,
-              ),
-              label: '',
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppImage.setting,
+              // height: 24.h,
+              // width: 24.w,
             ),
-          ],
-        ),
+            label: '',
+          ),
+        ],
       ),
     );
   }

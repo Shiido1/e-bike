@@ -216,43 +216,40 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
               ],
             ),
-      bottomNavigationBar: SizedBox(
-        height: 80.h,
-        child: BottomNavigationBar(
-          currentIndex: currentScreenIndex,
-          backgroundColor: AppColor.lightskyBlue,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          elevation: 4,
-          type: BottomNavigationBarType.fixed,
-          onTap: (value) => setState(() => currentScreenIndex = value),
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImage.home,
-              ),
-              label: '',
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentScreenIndex,
+        backgroundColor: AppColor.lightskyBlue,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        elevation: 4,
+        type: BottomNavigationBarType.fixed,
+        onTap: (value) => setState(() => currentScreenIndex = value),
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppImage.home,
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImage.bookmark,
-              ),
-              label: '',
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppImage.bookmark,
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImage.send,
-              ),
-              label: '',
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppImage.send,
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                AppImage.setting,
-              ),
-              label: '',
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppImage.setting,
             ),
-          ],
-        ),
+            label: '',
+          ),
+        ],
       ),
     );
   }

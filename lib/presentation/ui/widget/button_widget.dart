@@ -40,12 +40,12 @@ class ButtonWidget extends StatelessWidget {
             children: [
               Container(
                   padding: EdgeInsets.all(4),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: AppColor.white,
                   ),
                   child: SvgPicture.asset(AppImage.google)),
-              SizedBox(width: 55.w),
+              SizedBox(width: 59.w),
               TextView(
                 text: buttonText!,
                 fontSize: 15.0,
