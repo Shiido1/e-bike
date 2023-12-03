@@ -13,7 +13,7 @@ import 'package:shimmer/shimmer.dart';
 import 'utils/app_image.dart';
 
 class PackageTrackScreen extends ConsumerStatefulWidget {
-  PackageTrackScreen({super.key});
+  const PackageTrackScreen({super.key});
 
   @override
   ConsumerState<PackageTrackScreen> createState() => _PackageTrackScreenState();
@@ -22,11 +22,10 @@ class PackageTrackScreen extends ConsumerStatefulWidget {
 class _PackageTrackScreenState extends ConsumerState<PackageTrackScreen> {
   int currentScreenIndex = 0;
 
+  // ignore: unused_field
   late FakeNotifier _fakeNotifier;
 
   PageController controller = PageController();
-  static dynamic currentPageValue = 0.0;
-  int _onPageChangeValue = 0;
 
   @override
   void initState() {
@@ -43,7 +42,7 @@ class _PackageTrackScreenState extends ConsumerState<PackageTrackScreen> {
       backgroundColor: AppColor.white,
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -151,7 +150,7 @@ class _PackageTrackScreenState extends ConsumerState<PackageTrackScreen> {
                                       onTap: () => Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  TrackScreen())),
+                                                  const TrackScreen())),
                                       child: Container(
                                         width: double.infinity,
                                         padding: EdgeInsets.fromLTRB(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class DotWidget extends StatelessWidget {
   DotWidget({super.key, required this.color});
   Color? color;

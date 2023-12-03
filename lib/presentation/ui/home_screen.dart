@@ -20,6 +20,7 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   int currentScreenIndex = 0;
 
+  // ignore: unused_field
   late FakeNotifier _fakeNotifier;
 
   int _onPageChangeValue = 0;
@@ -51,7 +52,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         Container(
                           height: 48.h,
                           width: 48.w,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
                                   image: AssetImage(AppImage.preview),
@@ -165,7 +166,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               onTap: () => Navigator.of(context).push(
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          PackageTrackScreen())),
+                                          const PackageTrackScreen())),
                               child: Container(
                                 padding: EdgeInsets.fromLTRB(
                                     29.w, 16.w, 36.2.w, 16.w),
@@ -229,32 +230,24 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 AppImage.home,
-                // height: 24.w,
-                // width: 24.w,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 AppImage.bookmark,
-                // height: 24.h,
-                // width: 24.w,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 AppImage.send,
-                // height: 24.h,
-                // width: 24.w,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 AppImage.setting,
-                // height: 24.h,
-                // width: 24.w,
               ),
               label: '',
             ),
